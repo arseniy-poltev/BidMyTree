@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+
+input[type='text'], input[type='email'], input[type='password'], textarea {
+	outline: none;
+}
+
+@tailwind preflight;
+
+@tailwind utilities;
+
+@import 'utilities/animations'

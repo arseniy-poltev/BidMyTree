@@ -1,0 +1,28 @@
+language: php
+
+php:
+  - 7.3.0
+
+services:
+  - mysql
+
+before_install:
+  - sudo mysql -e "use mysql; ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';"
+  - sudo service mysql restart
+  - mysql -e 'CREATE DATABASE boilerplate_test;'
+
+before_script:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - npm install
+
+script:
+  - vendor/bin/phpunit --verbose
+  - npm run test
+
+cache:
+  directories:
+    - node_modules
+    - vendor

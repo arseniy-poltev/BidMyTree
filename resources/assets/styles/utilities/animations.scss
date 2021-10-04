@@ -1,0 +1,14 @@
+@keyframes slideDown{
+	from {
+		transform: translateY(-100%);
+	}
+
+	to {
+		transform: translateY(0%);
+	}
+}
+
+.slide-down {
+	animation: 1s slideDown;
+}
+
